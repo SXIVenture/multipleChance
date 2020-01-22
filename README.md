@@ -1,16 +1,46 @@
-＃multipleChance
+# App Name
+## MultipleChance 
+### presented by SXIVenture
 
-＃ReactNative環境構築はここを参照
-⇨https://itblo9.com/expo-io/
+***
 
-＃github運用ルール
-⇨topic-0001からブランチを作成して、pushするのは同様の名前のtopic-0001にpushすること。
-⇨Web上でmargeするので、チェック係にSatakeYusuke19920527をいれること
+次世代の出会い系アプリ
 
-＃ディレクトリ構造について
-・App.jsで最初のログイン画面とPageController.jsの画面遷移の管理をしています。
-・Login.js成功したらPageController.jsへ
-・PageController.jsは現在3つのページをコントロール
-    ⇨Profile.js
-    ⇨Map.js
-    ⇨Message.js
+***
+
+## Description
+⇨Mapを利用した出会い系アプリ。その日出会いたい度合いによってMapの現在地の色を変化させる。
+ 色は全５色。
+ 1.虹色
+ 　⇨今すぐ出会いたい
+ 2.赤色
+ 　⇨そこそこ会いたい。
+ 3.緑色
+ 　⇨普通。いい出会いがあれば会う。
+ 4.青色
+ 　⇨会いたい気分ではない。
+ 5.黒色
+ 　⇨絶対に会いにくるな。
+
+ このアプリを使えば、出会いを求める全ての人の要求を満たし、幸せな社会が生まれると確信している。
+
+ ## 全ての人々に最高の出会いを。
+
+***
+
+## Install
+
+'''
+
+
+'''
+
+
+
+
+
+
+
+## Author
+
+[tcnksm](https://github.com/SXIVenture)
