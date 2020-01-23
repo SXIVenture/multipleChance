@@ -4,7 +4,7 @@ import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import MapView from 'react-native-maps';
 
-class Map extends React.Component {
+class MapScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Map;
+export default MapScreen;

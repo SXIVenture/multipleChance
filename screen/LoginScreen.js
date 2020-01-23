@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, Image } from 'react-native';
+import { Text, Image } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Button, Card } from 'native-base';
+import styles from '../styles/default'
 import firebase from 'firebase';
 
-class Login extends React.Component {
+class LoginScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -90,31 +91,4 @@ class Login extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-	container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignContent:'center',
-    justifyContent: 'center',
-  },
-  content: {
-    marginTop: 100,
-    margin: 30,
-  },
-  buttonContainer: {
-    marginTop: 30,
-    paddingHorizontal: 30,
-  },
-  white: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight:'bold'
-  },
-  icon: {
-    width: 370,
-    height:300,
-  }
-});
-
-
-export default Login;
+export default LoginScreen;

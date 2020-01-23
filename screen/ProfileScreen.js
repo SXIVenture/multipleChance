@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import styles from '../styles/default'
 import firebase from 'firebase';
 
-class Profile extends React.Component {
+class ProfileScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,7 +20,7 @@ class Profile extends React.Component {
 
   render(){
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, profile_styles.container]}>
         <Button
           title='get emailAddress'
           onPress={
@@ -32,14 +33,11 @@ class Profile extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const profile_styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: 'white',
-		alignItems: 'center',
-		justifyContent: 'center'
+		backgroundColor: 'white'
 	}
 });
 
 
-export default Profile;
+export default ProfileScreen;

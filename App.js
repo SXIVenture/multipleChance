@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import firebase from 'firebase';
 import PageController from './component/PageController';
-import Login from './component/Login';
+import Login from './screen/LoginScreen';
 
 // firebase 読み込み
   // Your web app's Firebase configuration
