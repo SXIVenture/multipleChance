@@ -11,12 +11,13 @@ class ProfileScreen extends React.Component {
     }
   }
 
-  _getUserName = () => {
-    const user = firebase.auth().currentUser
-    this.setState({
-      user: user.email,
-    });
-}
+
+	_getUserName = () => {
+		const user = firebase.auth().currentUser;
+		this.setState({
+			user: user.email
+		});
+	};
 
   render(){
     return (
@@ -26,18 +27,25 @@ class ProfileScreen extends React.Component {
           onPress={
             () => {this._getUserName()}
           }
+
         />
-        <Text>{this.state.user}</Text>
-      </View>
-    );
-  }
+				</View>
+				<View style={styles.infoContent}>
+					<Text style={styles.name}>{this.state.name}</Text>
+					<Text style={styles.profession}>{this.state.profession}</Text>
+				</View>
+			</View>
+		);
+	}
 }
 
 const profile_styles = StyleSheet.create({
 	container: {
+<<<<<<< HEAD:screen/ProfileScreen.js
 		backgroundColor: 'white'
 	}
 });
 
 
 export default ProfileScreen;
+
