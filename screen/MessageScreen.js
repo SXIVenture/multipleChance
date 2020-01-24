@@ -1,7 +1,7 @@
 import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
 
-class Message extends React.Component {
+class MessageScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -47,4 +47,4 @@ class Message extends React.Component {
     }
 }
 
-export default Message;
+export default MessageScreen;
