@@ -22,5 +22,8 @@ export default StyleSheet.create({
       icon: {
         width: 370,
         height:300,
+  },
+  bigText: {
+        fontSize:80,
       }
 });
