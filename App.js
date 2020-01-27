@@ -1,22 +1,22 @@
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import firebase from 'firebase';
 import PageController from './component/PageController';
-import Login from './screen/LoginScreen';
+import AuthLoadingScreen from './screen/AuthLoadingScreen';
+import RegisterScreen from './screen/RegisterScreen';
 
-// ここにFirebaseの情報をペーズト
+const AppStack = createStackNavigator({ Home: PageController });
+const AuthStack = createStackNavigator({ Register: RegisterScreen });
 
-const AppNavigator = createStackNavigator(
-	{
-		Home: PageController,
-		Sub: Login
-	},
-	{
-		initialRouteName: 'Home',
-		defaultNavigationOptions: {
-			headerShown: false
-		}
-	}
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppStack,
+      Auth: AuthStack,
+    },
+    {
+      initialRouteName: 'AuthLoading',
+    }
+  )
 );
 
-export default createAppContainer(AppNavigator);

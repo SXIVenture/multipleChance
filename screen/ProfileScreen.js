@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Button, View } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import styles from '../styles/default'
 
 class ProfileScreen extends React.Component {
@@ -10,12 +11,25 @@ class ProfileScreen extends React.Component {
     }
   }
 
+  _removeUser = async () => {
+    try {
+        await AsyncStorage.removeItem('userUid');
+        this.props.navigation.navigate('AuthLoading');
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   render(){
     return (
       <View style={[styles.container, profile_styles.container]}>
 			<View style={styles.infoContent}>
 				<Text style={styles.bigText}>ProfilePage</Text>
 			</View>
+            <Button
+            title="ログアウト"
+            onPress={()=>this._removeUser()}
+            />
 		</View>
 		);
 	}

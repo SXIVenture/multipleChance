@@ -5,16 +5,18 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import ProfileScreen from '../screen/ProfileScreen';
 import MapScreen from '../screen/MapScreen';
 import MessageScreen from '../screen/MessageScreen';
+import { AsyncStorage } from 'react-native';
+
 
 const BottomTabNavigatorConfig = {
-  initialRouteName: 'Home',
+  initialRouteName: 'Profile',
   tabBarOptions: { showLabel: false }
 };
 
 const TabNavigator = createAppContainer(
   createBottomTabNavigator(
     {
-      Home: {
+      Profile: {
         screen: ProfileScreen,
         navigationOptions: () => ({
           tabBarIcon: ({ tintColor }) => (
@@ -22,7 +24,7 @@ const TabNavigator = createAppContainer(
           )
         })
       },
-      Profile: {
+      Map: {
         screen: MapScreen,
         navigationOptions: () => ({
           tabBarIcon: ({ tintColor }) => (

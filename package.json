@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.7.1",
     "@react-native-community/masked-view": "^0.1.6",
     "expo": "~36.0.0",
     "firebase": "^7.7.0",
@@ -20,9 +21,11 @@
     "react-native-gesture-handler": "^1.5.3",
     "react-native-gifted-chat": "^0.13.0",
     "react-native-maps": "^0.26.1",
+    "react-native-modal": "^11.5.3",
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.6.2",
     "react-native-screens": "^2.0.0-alpha.25",
+    "react-native-storage": "^1.0.1",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^2.0.15",
