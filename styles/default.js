@@ -1,8 +1,7 @@
 import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
-	container: {
+	    container: {
         flex: 1,
-        backgroundColor: '#fff',
         alignContent:'center',
         justifyContent: 'center',
       },
@@ -17,13 +16,16 @@ export default StyleSheet.create({
       white: {
         color: '#fff',
         fontSize: 20,
-        fontWeight:'bold'
+        fontWeight: 'bold',
       },
       icon: {
         width: 370,
         height:300,
-  },
-  bigText: {
+      },
+      map: {
+        ...StyleSheet.absoluteFillObject,
+      },
+      bigText: {
         fontSize:80,
-      }
+      },
 });
