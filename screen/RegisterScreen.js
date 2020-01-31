@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text,Button, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Form, Item, Label, Input, Button} from 'native-base'
 import styles from '../styles/default'
 import firebase from '../config/firebase';
 import { AsyncStorage } from 'react-native';
@@ -76,29 +77,43 @@ class RegisterScreen extends React.Component {
   render(){
     return (
       <View style={[styles.container, profile_styles.container]}>
-			<View style={styles.infoContent}>
-				<Text style={styles.bigText}>ProfilePage</Text>
-			</View>
-            <Button
-                title="詳細ページへ"
-                onPress={() => this.props.navigation.navigate('Map')}
+            <Form>
+                <Item floatingLabel>
+                <Label>UserName</Label>
+                <Input
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    onChangeText={(email) => this.setState({ email: email })}
                 />
-            <Button
-            title="ストレージに追加"
-            onPress={()=>this._saveStorage()}
-            />
-            <Button
-            title="ストレージロード"
-            onPress={()=>this._loadStorage()}
-            />
-            <Button
-            title="ログイン"
-            onPress={()=>this._loginUser(this.state.email, this.state.password)}
-            />
-            <Button
-            title="ユーザー登録"
-            onPress={()=>this._createUser(this.state.email, this.state.password)}
-            />
+                </Item>
+                <Item floatingLabel>
+                <Label>Password</Label>
+                <Input
+                    secureTextEntry={true}
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    onChangeText={(password) => {this.setState({password:password})}}
+                />
+                </Item>
+                <Button
+                full
+                rounded
+                danger
+                style={styles.buttonContainer}
+                onPress ={() => this._loginUser(this.state.email, this.state.password)}
+                >
+                <Text style={styles.white}>Login</Text>
+                </Button>
+                <Button
+                full
+                rounded
+                primary
+                style={styles.buttonContainer}
+                onPress={()=>this._createUser(this.state.email, this.state.password)}
+                >
+                <Text style={styles.white}>Register</Text>
+                </Button>
+            </Form>
 		</View>
 		);
 	}
