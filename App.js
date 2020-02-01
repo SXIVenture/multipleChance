@@ -5,7 +5,7 @@ import AuthLoadingScreen from './screen/AuthLoadingScreen';
 import RegisterScreen from './screen/RegisterScreen';
 
 const AppStack = createStackNavigator({ Home: PageController });
-const AuthStack = createStackNavigator({ Register: RegisterScreen });
+const AuthStack = createStackNavigator({ Login: RegisterScreen });
 
 export default createAppContainer(
   createSwitchNavigator(
