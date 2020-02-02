@@ -2,18 +2,18 @@ import React from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 class MessageScreen extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message:[],
-    }
-  }
-
-  componentWilllMount() {
-        this.setState({messages : []});
+    constructor(props) {
+        super(props)
+        this.state = {
+            message: [],
+        }
     }
 
-    reply(){
+    componentWilllMount() {
+        this.setState({ messages: [] });
+    }
+
+    reply() {
         return {
             _id: 1,
             text: 'こんにちは( ͡° ͜ʖ ͡°)',
@@ -34,7 +34,7 @@ class MessageScreen extends React.Component {
 
     render() {
         return (
-                <GiftedChat
+            <GiftedChat
                 messages={this.state.messages}
                 onSend={messages => this.onSend(messages)}
                 user={{
@@ -42,7 +42,7 @@ class MessageScreen extends React.Component {
                     name: 'this.',
                     avater: 'https://placeimg.com/140/140/any'
                 }}
-                />
+            />
         );
     }
 }

@@ -1,11 +1,10 @@
+import Icon from '@expo/vector-icons/FontAwesome';
 import React from 'react';
-import Icon from '@expo/vector-icons/FontAwesome'
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import ProfileScreen from '../screen/ProfileScreen';
 import MapScreen from '../screen/MapScreen';
 import MessageScreen from '../screen/MessageScreen';
-import { AsyncStorage } from 'react-native';
+import ProfileScreen from '../screen/ProfileScreen';
 
 
 const BottomTabNavigatorConfig = {
