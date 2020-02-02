@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Image } from 'react-native';
-import { Container, Header, Content, Form, Item, Input, Label, Button, Card } from 'native-base';
+import { Container, Content, Form, Item, Input, Label, Button, Card } from 'native-base';
 import styles from '../styles/default'
 import firebase from 'firebase';
 
@@ -23,8 +23,8 @@ class LoginScreen extends React.Component {
         alert("Please enter more than characters");
         return;
       }
-      alert("finished register!")
       firebase.auth().createUserWithEmailAndPassword(email, password);
+      alert("finished register!")
     } catch (error) {
       alert(error);
     }

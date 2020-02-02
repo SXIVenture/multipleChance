@@ -11,7 +11,7 @@ class RegisterScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        email: 'test12@gmail.com',
+        email: 'test14@gmail.com',
         password:'nagaoka13'
     }
   }
@@ -41,7 +41,8 @@ class RegisterScreen extends React.Component {
   _registerUser =(uid) => {
     try{
         db.collection('users').doc(uid).set({
-            name: "testuser"
+            email: this.state.email,
+            lastLoginTime: firebase.firestore.FieldValue.serverTimestamp()
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -62,12 +63,24 @@ class RegisterScreen extends React.Component {
         const value=await AsyncStorage.getItem('userUid');
         if (value == null){
             await AsyncStorage.setItem('userUid', uid);
+            await this._updateLastLoginDate(uid);
         }
         this._moveToAuthpage();
       })
     } catch (error) {
       alert(error);
     }
+  }
+
+  _updateLastLoginDate = (uid) => {
+    db.collection('users').doc(uid).update({
+        lastLoginTime: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(function() {
+        console.log("Document successfully updated!");
+    }).catch(function(error) {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+    });
   }
 
   _moveToAuthpage = () => {
