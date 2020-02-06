@@ -74,6 +74,13 @@ expo init <Appの名前>
 ### 5.プロジェクト起動！
 ```
 expo start
+
+```
+ios simulator の設定が完了しているなら、
+
+```
+expo start --ios
+
 ```
 
 
