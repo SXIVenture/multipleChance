@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiftedChat } from 'react-native-gifted-chat';
+import GiftedChat from 'react-native-gifted-chat';
 
 class MessageScreen extends React.Component {
     constructor(props) {
