@@ -1,15 +1,15 @@
-import React from 'react';
-import { Text, Image } from 'react-native';
-import { Container, Content, Form, Item, Input, Label, Button, Card } from 'native-base';
-import styles from '../styles/default'
 import firebase from 'firebase';
+import { Button, Container, Content, Form, Input, Item, Label } from 'native-base';
+import React from 'react';
+import { Image, Text } from 'react-native';
+import styles from '../styles/default';
 
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password:','
+      password: ','
     }
   }
 
@@ -40,7 +40,7 @@ class LoginScreen extends React.Component {
     }
   }
 
-  render(){
+  render() {
     return (
       <Container style={styles.container}>
         <Content style={styles.content}>
@@ -63,7 +63,7 @@ class LoginScreen extends React.Component {
                 secureTextEntry={true}
                 autoCorrect={false}
                 autoCapitalize="none"
-                onChangeText={(password) => {this.setState({password:password})}}
+                onChangeText={(password) => { this.setState({ password: password }) }}
               />
             </Item>
             <Button
@@ -71,7 +71,7 @@ class LoginScreen extends React.Component {
               rounded
               danger
               style={styles.buttonContainer}
-              onPress ={() => this.loginUser(this.state.email, this.state.password)}
+              onPress={() => this.loginUser(this.state.email, this.state.password)}
             >
               <Text style={styles.white}>Login</Text>
             </Button>
@@ -80,11 +80,11 @@ class LoginScreen extends React.Component {
               rounded
               primary
               style={styles.buttonContainer}
-              onPress={()=>this.signUpUser(this.state.email, this.state.password)}
+              onPress={() => this.signUpUser(this.state.email, this.state.password)}
             >
               <Text style={styles.white}>Register</Text>
             </Button>
-            </Form>
+          </Form>
         </Content>
       </Container>
     );
