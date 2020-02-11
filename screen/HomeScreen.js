@@ -9,13 +9,13 @@ var sex={
     woman: 2
 }
 
-class ProfileScreen extends React.Component {
+class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      userName: 'Test',
-      sex:'1',
-      age:22,
+      userName: '',
+      sex:'',
+      age: 0,
     }
   }
 
@@ -43,32 +43,32 @@ class ProfileScreen extends React.Component {
     }
 
     var userRef=db.collection("users").doc(userToken);
-    var state={
-      name:this.state.userName,
-      sex: this.state.sex,
-      age: this.state.age
+    if(this._isExistDoc(userRef)){
+        userRef.set({
+            name: this.state.userName,
+            sex: this.state.sex,
+            age: this.state.age
+        }, { merge: true })
+    }else {
+            // ユーザー情報がDBに存在しない時。
+            alert("ユーザートークンが不正です。お手数ですが、ログインし直して下さい。");
     }
     // ユーザー情報を登録する。
-    if (state.age <18){
-      alert('18才以下の方のご利用はできません。');
-    }else if(state.sex != sex.man && state.sex != sex.woman ){
-      alert('性別を選択して下さい');
-    }else{
-      const userData=await userRef.get()
-      if(userData.exists){
-        await userRef.set({
-          "name": state.name,
-          "sex": state.sex,
-          "age": state.age
-        }, { merge: true })
-        await AsyncStorage.setItem('userName', state.name);
-        this.props.navigation.navigate("AuthLoading");
-      }else{
-        // ユーザー情報がDBに存在しない時。
-        alert("ユーザートークンが不正です。お手数ですが、ログインし直して下さい。");
+      if (this.state.age <18){
+        alert('18才以下の方のご利用はできません。');
       }
-    }
+      if (this.state.sex != sex.man && this.state.sex != sex.woman ){
+        alert('性別を選択して下さい');
+      }
   }
+
+_isExistDoc= (ref) =>{
+    ref.get().then(function(doc){
+        return doc.exists
+    }).catch(function(error) {
+        console.log("エラーが発生しました。", error);
+    });
+}
 
   render(){
     return (
@@ -104,15 +104,6 @@ class ProfileScreen extends React.Component {
                 rounded
                 danger
                 style={styles.buttonContainer}
-                onPress ={() => this._registerUserInfo()}
-                >
-                    <Text style={styles.white}>登録</Text>
-                </Button>
-                <Button
-                full
-                rounded
-                danger
-                style={styles.buttonContainer}
                 onPress ={() => this._removeUser()}
                 >
                 <Text style={styles.white}>ログアウト</Text>
@@ -120,13 +111,14 @@ class ProfileScreen extends React.Component {
             </Form>
 		</View>
 		);
-  }
+	}
 }
 
 const profile_styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white'
-  }
+	container: {
+		backgroundColor: 'white'
+	}
 });
 
-export default ProfileScreen;
+export default HomeScreen;
+
