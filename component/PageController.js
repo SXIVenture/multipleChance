@@ -4,7 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapScreen from '../screen/MapScreen';
 import MessageScreen from '../screen/MessageScreen';
-import ProfileScreen from '../screen/ProfileScreen';
+import HomeScreen from '../screen/HomeScreen';
 
 
 const BottomTabNavigatorConfig = {
@@ -16,7 +16,7 @@ const TabNavigator = createAppContainer(
   createBottomTabNavigator(
     {
       Profile: {
-        screen: ProfileScreen,
+        screen: HomeScreen,
         navigationOptions: () => ({
           tabBarIcon: ({ tintColor }) => (
             <Icon name='user' color={tintColor} size={24} />
